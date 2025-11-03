@@ -1,0 +1,24 @@
+{
+  "accountAssociation": {
+    "header": "Farcaster account association",
+    "payload": {
+      "domain": "farcaster-sbt-generator.vercel.app",
+      "address": "0x9187a235c9BF67B19C9276D874Fd493Fa7c79654",
+      "uri": "https://farcaster-sbt-generator.vercel.app",
+      "version": 1,
+      "chainId": 1,
+      "nonce": "12345678"
+    },
+    "signature": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "frame": {
+    "version": "1",
+    "name": "SBT Generator",
+    "iconUrl": "https://farcaster-sbt-generator.vercel.app/logo.png",
+    "homeUrl": "https://farcaster-sbt-generator.vercel.app",
+    "imageUrl": "https://farcaster-sbt-generator.vercel.app/logo.png",
+    "buttonTitle": "Mint SBT",
+    "splashImageUrl": "https://farcaster-sbt-generator.vercel.app/logo.png",
+    "splashBackgroundColor": "#885aff"
+  }
+}
