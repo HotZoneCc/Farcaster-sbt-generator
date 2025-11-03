@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farcaster SBT Generator</title>
+    <meta name="fc:frame" content="vNext">
+    <meta name="fc:frame:image" content="https://farcaster-sbt-generator.vercel.app/logo.png">
+    <meta name="fc:frame:button:1" content="Mint My SBT">
+    <meta name="fc:frame:post_url" content="https://farcaster-sbt-generator.vercel.app/">
     <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Generate Soulbound Tokens for Farcaster users">
 </head>
 <body>
     <div class="container">
         <header>
             <div class="logo">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI0LjI1IDMuNUg3Ljc1QzUuMjY0NzIgMy41IDMuMjUgNS41MTQ3MiAzLjI1IDhWMjRDMy4yNSAyNi40ODUzIDUuMjY0NzIgMjguNSA3Ljc1IDI4LjVIMjQuMjVDMjYuNzM1MyAyOC41IDI4Ljc1IDI2LjQ4NTMgMjguNzUgMjRWOFMyNi43MzUzIDMuNSAyNC4yNSAzLjVaIiBmaWxsPSIjODg1QUZGIi8+CjxwYXRoIGQ9Ik0xNy4xNzYgMTUuOTU0TDIxLjI5OSAxMS44MzFMMjMuMTcgMTMuNzAzTDE3LjE3NiAxOS42OTdMMTMuODI0IDE2LjM0NUwxNS42OTUgMTQuNDc0TDE3LjE3NiAxNS45NTRaTTguODI0MjIgMTEuODMxTDEyLjk0NyAxNS45NTRMMTQuNDI4IDE0LjQ3NEwxNi4zIDEyLjYwMkwxNC40MjggMTAuNzMxTDguODI0MjIgMTEuODMxWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+" alt="Farcaster Logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI0LjI1IDMuNUg3Ljc1QzUuMjY0NzIgMy41IDMuMjUgNS41MTQ3MiAzLjI1IDhWMjRDMy4yNSAyNi40ODUzIDUuMjY0NzIgMjguNSA3Ljc1IDI4LjVIMjQuMjVDMjYuNzM1MyAyOC41IDI4Ljc1IDI2LjQ4NTMgMjguNzUgMjRWOFMyNi43MzUzIDMuNSAyNC4Ijg1LjVaIiBmaWxsPSIjODg1QUZGIi8+CjxwYXRoIGQ9Ik0xNy4xNzYgMTUuOTU0TDIxLjI5OSAxMS44MzFMMjMuMTcgMTMuNzAzTDE3LjE3NiAxOS42OTdMMTMuODI0IDE2LjM0NUwxNS42OTUgMTQuNDc0TDE3LjE3NiAxNS45NTRaTTguODI0MjIgMTEuODMxTDEyLjk0NyAxNS45NTRMMTQuNDI4IDE0LjQ3NEwxNi4zIDEyLjYwMkwxNC40MjggMTAuNzMxTDguODI0MjIgMTEuODMxWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+" alt="Farcaster Logo">
                 <h1>Farcaster SBT Generator</h1>
             </div>
         </header>
@@ -20,6 +23,10 @@
             <div class="card">
                 <h2>Generate Your Soulbound Token</h2>
                 <p class="description">Create a unique SBT with your Farcaster ID for $1 worth of ETH</p>
+                
+                <div id="userInfo" class="user-info hidden">
+                    <p>Welcome, Farcaster user! Your FID is: <span id="userFid">---</span></p>
+                </div>
                 
                 <form id="sbtForm">
                     <div class="input-group">
@@ -53,12 +60,30 @@
                         <div class="sbt-info">
                             <div class="fid-display">FID: <span id="previewFid">123</span></div>
                             <div class="token-type">Soulbound Token</div>
+                            <div class="sbt-note">Permanently bound to your wallet</div>
                         </div>
                     </div>
                     
-<div class="payment-details">
-    <p>Send <span id="ethAmount">0.000</span> ETH to:</p>
-    <div class="address">0x9187a235c9BF67B19C9276D874Fd493Fa7c79654</div>
-    <button id="copyAddress" class="copy-btn">Copy Address</button>
-    <!-- Web3 button will be inserted here by JavaScript -->
-</div>
+                    <div class="payment-section">
+                        <h4>Complete Payment</h4>
+                        <div class="payment-details">
+                            <p>Send <span id="ethAmount">0.000</span> ETH to:</p>
+                            <div class="address">0x9187a235c9BF67B19C9276D874Fd493Fa7c79654</div>
+                            <button id="copyAddress" class="copy-btn">Copy Address</button>
+                            <button id="connectWallet" class="wallet-btn">Connect Farcaster Wallet</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="error" class="error hidden"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Farcaster & Ethereum</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
