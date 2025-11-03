@@ -275,3 +275,37 @@ footer {
     text-align: center;
     border: 1px solid #c3e6cb;
 }
+/* Farcaster Mini App Styles */
+.user-info {
+    background: #e3f2fd;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: center;
+    border-left: 4px solid #885aff;
+}
+
+.wallet-btn {
+    background: #f6851b;
+    margin-top: 10px;
+}
+
+.wallet-btn:hover {
+    background: #e2761b;
+}
+
+.wallet-btn:disabled {
+    background: #a0aec0;
+}
+
+.sbt-note {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Frame styles */
+meta[name="fc:frame"] {
+    display: none;
+}
