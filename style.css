@@ -245,3 +245,33 @@ footer {
         text-align: center;
     }
 }
+/* Add to existing style.css */
+.web3-btn {
+    transition: all 0.3s ease;
+}
+
+.web3-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tx-link:hover {
+    text-decoration: underline !important;
+}
+
+/* Loading state for price */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Success message styles */
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    text-align: center;
+    border: 1px solid #c3e6cb;
+}
